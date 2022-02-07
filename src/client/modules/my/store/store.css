@@ -1,0 +1,91 @@
+
+.backcolor{
+    background-color: white;
+}
+.grid-container {
+    display: grid;
+    grid: 60vh / auto auto auto;
+    grid-gap: 2px;
+    padding: 1vh;
+    margin-left: 15vw;
+}
+.item{
+    height: 50vh;
+    width: 40vh;
+    cursor: pointer;
+    margin-top: 5%;
+}
+.item-img{
+    height: 80%;
+    width: 100%;
+}
+.item-name{
+    font-size: 4vh;
+}
+.item-price{
+    font-size: 2vh;
+}
+
+/* =================================================== */                        
+/* Fixed sidenav, full height */
+.sidenav {
+    height: 100%;
+    width: 15vw;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    padding-top: 20px;
+    margin-top: 3%;
+  }
+  
+  /* Style the sidenav links and the dropdown button */
+  .sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 20px;
+    color: black;
+    display: block;
+    border: none;
+    background: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    outline: none;
+  }
+  
+  /* On mouse-over */
+  .sidenav a:hover, .dropdown-btn:hover {
+    color: #f1f1f1;
+    background-color: black;
+  }
+  
+  /* Main content */
+  .main {
+    margin-left: 200px; /* Same as the width of the sidenav */
+    font-size: 20px; /* Increased text to enable scrolling */
+    padding: 0px 10px;
+  }
+  
+  /* Add an active class to the active dropdown button */
+  .active {
+    background-color: green;
+    color: white;
+  }
+
+  
+  /* Some media queries for responsiveness */
+  @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+    .sidenav fieldset {font-size: 18px;}
+  }
+  fieldset{
+      border: none;
+      font-size: 2em;
+  }
+  hr{
+      margin-right: 30%;
+  }

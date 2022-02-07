@@ -1,0 +1,114 @@
+.container{
+    background-color: white;
+}
+.aboutpic{
+    width:100%;
+    height:60vh;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 77%, rgba(0,0,0,0));
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 77%, rgba(0,0,0,0));
+    transition: transform 0.8s;
+    overflow: hidden;
+    max-height: 70vh;
+    border: none;
+}
+.aboutpic:hover{
+    transform: scale(1.1);
+}
+.panel{
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+}
+.panel display{
+    display: block;
+}
+
+.aboutbutton{
+    text-align: center;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px black solid;
+    padding: 20px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 0.5s;
+
+}
+.aboutbutton:hover{
+    background-color: black;
+    color: white;
+}
+.year{
+    left: 45%;
+}
+h1{
+    color: black;
+    /* -webkit-text-stroke: 1px black; */
+    font-size: 7vh;
+    font-family: myFirstFont;
+}
+p{
+    margin-left: 25%;
+    margin-right: 25%;
+    font-size: 2vh;
+    font-family: mySecondFont;
+}
+hr{
+    margin-right: 15%;
+    margin-left: 15%;
+}
+.decade{
+    text-align: center;
+    overflow: hidden;
+}
+
+/* @font-face{
+    font-family: myFirstFont;
+    src: url(../resources/Roboto-Regular.ttf);
+}
+@font-face{
+    font-family: mySecondFont;
+    src: url(../resources/Roboto-Light.ttf);
+} */
+
+@font-face{
+    font-family: myFirstFont;
+    src: url(../resources/PlayfairDisplay-MediumItalic.ttf);
+}
+@font-face{
+    font-family: mySecondFont;
+    src: url(../resources/PlayfairDisplay-Regular.ttf);
+}
+.header{
+    text-align: center;
+    position: relative;
+    background-color: black;
+}
+.header img{
+    width: 100%;
+    max-height: 60vh;
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0));
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1) 60%, rgba(0,0,0,0));
+
+}
+.header h1{
+    position: absolute;
+    top: 85%;
+    left: 32%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    color: white;
+}
+h3{
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 30%;
+    font-family: myThirdFont;
+}
+@font-face{
+    font-family: myThirdFont;
+    src: url(../resources/Roboto-Thin.ttf);
+}
+

@@ -1,74 +1,37 @@
 <template>
 <!-- The Nav Bar -->
-    <div class="slds-context-bar " style="height: 6vh; background-color: #ba0517; color: white;">
-        <div class="slds-context-bar__primary">
-        <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
-            <div class="slds-context-bar__icon-action">
-                <img src="https://assets.manutd.com/AssetPicker/images/0/0/3/2/197240/Header-Logo1500994616801.png" class="badge">
-            </div>
-            <span class="slds-context-bar__label-action slds-context-bar__app-name">
-            </span>
-        </div>
-        </div>
-        <nav class="slds-context-bar__secondary" role="navigation">
-        <ul class="slds-grid">
-
-
-            <template if:true={homePage}>
-                <li class="slds-context-bar__item slds-is-active">
-                <a href="#"  onclick={goToHomePage} class="slds-context-bar__label-action" title="Home">
-                    <span class="slds-assistive-text">Current Page:</span>
-                    <span class="slds-truncate" title="Home" style="font-size: 2em;">Home</span>
-                </a>
-                </li>
-            </template>
-            <template if:false={homePage}>
-                <a href="#"  onclick={goToHomePage} class="slds-context-bar__label-action" title="Home">
-                    <span class="slds-truncate" title="Home" style="font-size: 2em;">Home</span>
-                </a>
-            </template>
-
-            <template if:true={aboutPage}>
-                <li class="slds-context-bar__item slds-is-active">
-                <a href="#"  onclick={goToAboutPage} class="slds-context-bar__label-action" title="Home">
-                    <span class="slds-assistive-text">Current Page:</span>
-                    <span class="slds-truncate" title="About" style="font-size: 2em;">About</span>
-                </a>
-                </li>
-            </template>
-            <template if:false={aboutPage}>
-                <a href="#"  onclick={goToAboutPage} class="slds-context-bar__label-action" title="Home">
-                    <span class="slds-truncate" title="About" style="font-size: 2em;">About</span>
-                </a>
-            </template>
-
-
-
-
-            <li class="slds-context-bar__item">
-            <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                <span class="slds-truncate" title="Menu Item" style="font-size: 2em;">Menu Item</span>
-            </a>
-            </li>
-            <li class="slds-context-bar__item">
-            <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                <span class="slds-truncate" title="Menu Item" style="font-size: 2em;">Menu Item</span>
-            </a>
-            </li>
-            <li class="slds-context-bar__item">
-            <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                <span class="slds-truncate" title="Menu Item" style="font-size: 2em;">Menu Item</span>
-            </a>
-            </li>
-        </ul>
-
-        </nav>
-
-        <div class="loginbuttons">
-            <button class="mybutton button3" onclick={signup}>Sign Up</button>
-            <button class="mybutton button3" onclick={login}>Login</button>
-        </div>
+<!--
+    <div class="slds-context-bar__icon-action">
+        <img src="https://assets.manutd.com/AssetPicker/images/0/0/3/2/197240/Header-Logo1500994616801.png" class="badge">
     </div>
+-->
+    <div class="navbar">
+        <nav class="w3-bar " style="background-color: #ba0517;" position=fixed top=0 width=100%>
+            <span>
+                <div class="badge">
+                    <img onclick={goToHomePage} src="https://assets.manutd.com/AssetPicker/images/0/0/3/2/197240/Header-Logo1500994616801.png">
+                </div>
+            </span>
+            <a onclick={goToHomePage} class="w3-button w3-bar-item" style="font-family: navBarFont;">Home</a>
+            <a onclick={goToAboutPage} class="w3-button w3-bar-item" style="font-family: navBarFont;">About</a>
+            <a onclick={goToContactPage} class="w3-button w3-bar-item" style="font-family: navBarFont;">Contact Us</a>
+            <a onclick={goToStorePage} class="w3-button w3-bar-item" style="font-family: navBarFont;">Store</a>
+            <div class="loginbuttons">
+                <template if:false={isLoggedIn}>
+                    <button class="mybutton button3" onclick={signup}>Sign Up</button>
+                    <button class="mybutton button3" onclick={login}>Login</button>
+                </template>
+
+                <template if:true={isLoggedIn}>
+                    <p class="welcomeuser">Welcome {username}!</p>
+                    <button class="mybutton button3" onclick={logout}>Logout</button>
+                </template>
+            </div>
+        </nav>
+    </div>
+
+        
+ 
 
 <!-- modals for login and signup -->
     <template if:true={loginPage}>
@@ -83,17 +46,23 @@
                 <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Login</h1>
             </div>
             <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-                <form class="center">
-                    <label for="username">Username or Email:</label><br>
-                    <input type="text" id="username" name="username"><br>
-                    <br>
-                    <label for="password">Password:</label><br>
-                    <input type="password" id="password" name="password"><br><br>
-                </form>
+                <div class="slds-form-element">
+                    <form class="center">
+                        <label class="slds-form-element__label" for="username">Username or Email:</label><br>
+                        <div class="slds-form-element__control">
+                            <input type="text" id="username" name="username" placeholder="Enter Username or Email..." class="slds-input" onchange={handleInputChange}><br>
+                        </div>
+                        <br>
+                        <label class="slds-form-element__label" for="password">Password:</label><br>
+                        <div class="slds-form-element__control">
+                            <input type="password" id="password" name="password" placeholder="Enter Password..." class="slds-input"><br><br>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="slds-modal__footer">
-                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeLogin}>Cancel</button>
-                <button class="slds-button slds-button_brand" onclick={closeLogin}>Submit</button>
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeLogin} style="color: #ba0517;">Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={loggedOn} style="background-color: #ba0517;">Submit</button>
             </div>
             </div>
         </section>
@@ -113,49 +82,69 @@
                 <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate">Sign Up</h1>
             </div>
             <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
-                <form class="center">
-                    <label for="username1">Username:</label><br>
-                    <input type="text" id="username1" name="username1"><br>
-                    <br>
-                    <label for="email">Email:</label><br>
-                    <input type="email" id="email" name="email"><br>
-                    <br>
-                    <label for="password1">Password:</label><br>
-                    <input type="password1" id="password1" name="password1"><br>
-                    <br>
-                    <label for="repeatpass">Repeat Password:</label><br>
-                    <input type="password" id="repeatpassword" name="repeatpassword"><br>
-                    <br>
-                    <label for="country">Country:</label><br>
-                    <select id="country" name="country">
-                      <option value="unitedstates">United States</option>
-                      <option value="unitedkingdom">United Kingdom</option>
-                      <option value="canada">Canada</option>
-                      <option value="germany">Germany</option>
-                    </select>
-                    <br>
-                </form>
+                <div class="slds-form-element">
+                    <form class="center">
+                        <label for="username1" class="slds-form-element__label">Username:</label><br>
+                        <div class="slds-form-element__control">
+                            <input type="text" id="username1" name="username1" placeholder="Enter username..." class="slds-input"><br>
+                        </div>
+                        <br>
+                        <label for="email" class="slds-form-element__label">Email:</label><br>
+                        <div class="slds-form-element__control">
+                            <input type="email" id="email" name="email" placeholder="someone@example.com..." class="slds-input"><br>
+                        </div>
+                        <br>
+                        <label for="password1" class="slds-form-element__label">Password:</label><br>
+                        <div class="slds-form-element__control">
+                            <input type="password1" id="password1" name="password1" placeholder="Enter password..." class="slds-input"><br>
+                        </div>
+                        <br>
+                        <label for="repeatpass" class="slds-form-element__label">Repeat Password:</label><br>
+                        <div class="slds-form-element__control">
+                            <input type="password" id="repeatpassword" name="repeatpassword" placeholder="Enter password again..." class="slds-input"><br>
+                        </div>
+                        <br>
+                        <label for="country" class="slds-form-element__label">Country:</label><br>
+                        <div class="slds-form-element__control">
+                            <select class="slds-input" id="country" name="country">
+                                <option value="unitedkingdom">United Kingdom</option>
+                                <option value="unitedstates">United States</option>
+                                <option value="canada">Canada</option>
+                                <option value="germany">Germany</option>
+                            </select>
+                        </div>
+                        <br>
+                    </form>
+                </div>
             </div>
             <div class="slds-modal__footer">
-                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeSignup}>Cancel</button>
-                <button class="slds-button slds-button_brand" onclick={closeSignup}>Submit</button>
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeSignup} style="color: #ba0517;">Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={closeSignup} style="background-color: #ba0517;">Submit</button>
             </div>
             </div>
         </section>
         <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
     </template>
 
+ 
 
-
+    <div class="overlay"></div>
 
 <!-- If statements to toggle between pages -->
-
+<!--    <my-nav onnavchange = {handleTabChange}  ></my-nav> 
+        pages.homePage -->
+ 
     <template if:true={homePage}>
         <my-home></my-home>
     </template>
     <template if:true={aboutPage}>
         <my-about></my-about>
     </template>
-
+    <template if:true={contactPage}>
+        <my-contact></my-contact>
+    </template>
+    <template if:true={storePage}>
+        <my-store></my-store>
+    </template>
 
 </template>

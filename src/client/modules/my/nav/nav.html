@@ -1,0 +1,151 @@
+<!-- The Nav Bar -->
+<template>
+    <div class="slds-context-bar " style="height: 6vh; background-color: #ba0517; color: white;">
+        <div class="slds-context-bar__primary">
+        <div class="slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click slds-no-hover">
+            <div class="slds-context-bar__icon-action">
+                <img src="https://assets.manutd.com/AssetPicker/images/0/0/3/2/197240/Header-Logo1500994616801.png" class="badge">
+            </div>
+            <span class="slds-context-bar__label-action slds-context-bar__app-name">
+            </span>
+        </div>
+        </div>
+        <nav class="slds-context-bar__secondary" role="navigation">
+        <ul class="slds-grid">
+
+
+            <template if:true={homePage}>
+                <li class="slds-context-bar__item slds-is-active">
+                <a href="#"  onclick={goToHomePage} class="slds-context-bar__label-action" title="Home">
+                    <span class="slds-assistive-text">Current Page:</span>
+                    <span class="slds-truncate" title="Home" style="font-size: 2em;">Home</span>
+                </a>
+                </li>
+            </template>
+            <template if:false={homePage}>
+                <a href="#"  onclick={goToHomePage} class="slds-context-bar__label-action" title="Home">
+                    <span class="slds-truncate" title="Home" style="font-size: 2em;">Home</span>
+                </a>
+            </template>
+
+            <template if:true={aboutPage}>
+                <li class="slds-context-bar__item slds-is-active">
+                <a href="#"  onclick={goToAboutPage} class="slds-context-bar__label-action" title="Home">
+                    <span class="slds-assistive-text">Current Page:</span>
+                    <span class="slds-truncate" title="About" style="font-size: 2em;">About</span>
+                </a>
+                </li>
+            </template>
+            <template if:false={aboutPage}>
+                <a href="#"  onclick={goToAboutPage} class="slds-context-bar__label-action" title="Home">
+                    <span class="slds-truncate" title="About" style="font-size: 2em;">About</span>
+                </a>
+            </template>
+
+
+
+
+            <li class="slds-context-bar__item">
+            <a href="#" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item" style="font-size: 2em;">Menu Item</span>
+            </a>
+            </li>
+            <li class="slds-context-bar__item">
+            <a href="#" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item" style="font-size: 2em;">Menu Item</span>
+            </a>
+            </li>
+            <li class="slds-context-bar__item">
+            <a href="#" class="slds-context-bar__label-action" title="Menu Item">
+                <span class="slds-truncate" title="Menu Item" style="font-size: 2em;">Menu Item</span>
+            </a>
+            </li>
+        </ul>
+
+        </nav>
+
+        <div class="loginbuttons">
+            <button class="mybutton button3" onclick={signup}>Sign Up</button>
+            <button class="mybutton button3" onclick={login}>Login</button>
+        </div>
+    </div>
+
+    <!-- modals for login and signup -->
+    <template if:true={loginPage}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Login</h1>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                <form class="center">
+                    <label for="username">Username or Email:</label><br>
+                    <input type="text" id="username" name="username"><br>
+                    <br>
+                    <label for="password">Password:</label><br>
+                    <input type="password" id="password" name="password"><br><br>
+                </form>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeLogin}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={closeLogin}>Submit</button>
+            </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+
+
+    <template if:true={signupPage}>
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-02" aria-modal="true" class="slds-modal slds-fade-in-open">
+            <div class="slds-modal__container">
+            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                </svg>
+                <span class="slds-assistive-text">Cancel and close</span>
+            </button>
+            <div class="slds-modal__header">
+                <h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate">Sign Up</h1>
+            </div>
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                <form class="center">
+                    <label for="username1">Username:</label><br>
+                    <input type="text" id="username1" name="username1"><br>
+                    <br>
+                    <label for="email">Email:</label><br>
+                    <input type="email" id="email" name="email"><br>
+                    <br>
+                    <label for="password1">Password:</label><br>
+                    <input type="password1" id="password1" name="password1"><br>
+                    <br>
+                    <label for="repeatpass">Repeat Password:</label><br>
+                    <input type="password" id="repeatpassword" name="repeatpassword"><br>
+                    <br>
+                    <label for="country">Country:</label><br>
+                    <select id="country" name="country">
+                    <option value="unitedstates">United States</option>
+                    <option value="unitedkingdom">United Kingdom</option>
+                    <option value="canada">Canada</option>
+                    <option value="germany">Germany</option>
+                    </select>
+                    <br>
+                </form>
+            </div>
+            <div class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" aria-label="Cancel and close" onclick={closeSignup}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={closeSignup}>Submit</button>
+            </div>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+    </template>
+</template>
+
+
+
+

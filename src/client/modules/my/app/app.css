@@ -1,66 +1,35 @@
 .center {
     text-align: center;
 }
-.link {
-    border: none;
-    padding: 10px;
-    border-radius: 5px;
-    text-decoration: none;
-    background-color: #ff6000;
-    color: white;
-    margin-left: 33%;
-    margin-right: 33%;
-    display: inline-block;
-    margin-top: 1em;
-}
-.info {
-    color: black;
-    background-color: #e4f2f8;
-    margin: auto;
-    padding: 15px 10px;
-    text-align: left;
-    width: 300px;
-    border-radius: 5px;
-}
-.code {
-    font-family: monospace;
-}
-.container {
-    margin-top: 30px;
-}
-
-img {
-    max-width: 150px;
-}
-
-.greeting {
-    height: 75px;
-}
-
 .loginbuttons{
     float: right;
-    margin-top: 0.7%;
     margin-right: 1%;
     font-size: 1.3em;
 }
 
 .badge{
-    height:100%; 
-    width:100%;
+    float: left;
+    height: 6.5vh;
+    width: 6.5vh;
+    margin-right: 2vh;
+    margin-left: 2vh;
+    cursor: pointer;
+
 }
 
 .mybutton {
-    background-color: #ba0517; /* Green */
-    border: none;
+    background-color: #ba0517; 
     color: white;
-    padding: 16px 32px;
+    padding: 0.7em 1.7em;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
+    font-size: 0.8em;
+    margin: 0.25em 0.25em;
     transition-duration: 0.4s;
     cursor: pointer;
+    border-radius: 5px;
+    font-family: navBarFont
   }
   .button3 {
     background-color: white; 
@@ -71,4 +40,73 @@ img {
   .button3:hover {
     background-color: #ba0517;
     color: white;
+
+}
+.welcomeuser{
+  display: inline-block;
+  color: white;
+  margin: 0.3em 0.3em;
+
+}
+
+.overlay {
+  margin-top: 3.5%;
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+
+.navbar a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 2vh 3vh;
+  text-decoration: none;
+  font-size: 1.8vh;
+}
+
+
+.navbar a:hover {
+  background: white;
+  color: black;
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    flex-direction: column;
   }
+}
+.slds-input{
+  margin-right: 20%;
+}
+
+
+
+
+
+@font-face{
+    font-family: navBarFont;
+    src: url(../resources/Roboto-Regular.ttf);
+}
+/*
+@font-face{
+    font-family: mySecondFont;
+    src: url(../resources/Roboto-Light.ttf);
+}
+
+@font-face{
+    font-family: myThirdFont;
+    src: url(../resources/PlayfairDisplay-MediumItalic.ttf);
+}
+@font-face{
+    font-family: myFourthFont;
+    src: url(../resources/PlayfairDisplay-Regular.ttf);
+}
+*/

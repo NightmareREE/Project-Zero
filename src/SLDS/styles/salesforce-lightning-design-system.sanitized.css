@@ -1,4 +1,4 @@
-/*! Lightning Design System 2.17.1 */
+/*! Lightning Design System 2.17.3 */
 @charset "UTF-8";
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 article,
@@ -1788,7 +1788,7 @@ a.slds-button--inverse:focus {
 .slds-button__icon {
   width: 0.875rem;
   height: 0.875rem;
-  fill: currentColor;
+  fill: var(--slds-c-icon-color-foreground, currentColor);
 }
 .slds-button__icon_large {
   width: 1.5rem;
@@ -2410,6 +2410,8 @@ a.slds-button--inverse:focus {
   height: 1rem;
   display: inline-block;
   position: relative;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
   vertical-align: middle;
   border-radius: var(--slds-c-checkbox-radius-border, var(--sds-c-checkbox-radius-border, 0.125rem));
   border-width: 1px;
@@ -7719,6 +7721,10 @@ input[readonly][role="combobox"][disabled] {
 .slds-input_faux.slds-is-disabled:active {
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+.slds-input_faux > span:before {
+  content: "";
+  display: inline-block;
 }
 .slds-input_borders[readonly] {
   /*! @css-var-fallback padding-right */

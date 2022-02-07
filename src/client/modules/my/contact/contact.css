@@ -1,0 +1,49 @@
+.backcolor{
+    background-color: white;
+}
+.main {
+    margin-right: 25%;
+    margin-left: 25%;
+}
+h1{
+    font-size: 5vh;
+    text-align: center;
+    font-family: RobotoReg;
+}
+hr{
+    margin-right: 30%;
+}
+.tele{
+    font-weight: 600;
+    display:block;
+    margin-top: 1%;
+}
+.phoneabout{
+    font-weight: lighter;
+    display:block;
+}
+.phoneline{
+    display: block;
+    margin-top: 5%;
+    font-size: 2em;
+}
+
+
+@font-face{
+    font-family: RobotoReg;
+    src: url(../resources/Roboto-Regular.ttf);
+}
+@font-face{
+    font-family: mySecondFont;
+    src: url(../resources/Roboto-Light.ttf);
+}
+
+@font-face{
+    font-family: myThirdFont;
+    src: url(../resources/PlayfairDisplay-MediumItalic.ttf);
+}
+
+@font-face{
+    font-family: PlayFairReg;
+    src: url(../resources/PlayfairDisplay-Regular.ttf);
+}
